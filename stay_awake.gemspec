@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.version       = StayAwake::VERSION
   spec.authors       = ['Tobias Bühlmann']
   spec.email         = ['tobias.buehlmann@gmx.de']
-  spec.description   = "Requests websites so they won't fall asleep. Like Heroku."
+  spec.description   = "Requests websites so they won't fall asleep. Like on Heroku."
   spec.summary       = "stay_awake requests websites like Heroku so they won't fall asleep. It supports the HTTP libraries em-http-request, HTTParty and net/http."
   spec.homepage      = 'https://github.com/tbuehlmann/stay_awake'
   spec.license       = 'MIT'
