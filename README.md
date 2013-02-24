@@ -24,6 +24,12 @@ end
 buzzer.buzz
 ```
 
+### Sinatra
+Put the `StayAwake.configure` block inside Sinatra's `configure` block, run `buzz` and you're done.
+
+### Rails
+Put the StayAwake.configure block inside an initializer, run `buzz` and you're done.
+
 ### Configuration Defaults
 | Configuration | Type | Default |
 |:-:|:-:|:-:|
@@ -35,6 +41,8 @@ buzzer.buzz
 | `strategy` | `StayAwake::Strategy` | `StayAwake.strategies` |
 
 You can either use `app_name` or `url`, but `url` has precedence over `app_name`. If just `app_name` is given, it will be translated to `http://app_name.herokuapp.com/`.
+
+When using em-http-request, the buzzing will begin on the `next_tick`.
 
 ### Supported HTTP Libraries
 - [em-http-request](https://github.com/igrigorik/em-http-request "em-http-request")
