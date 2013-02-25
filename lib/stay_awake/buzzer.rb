@@ -35,6 +35,7 @@ module StayAwake
 
     def start_buzzing(url)
       strategies = [StayAwake.config.strategy].flatten
+      strategies.map!(&:instance)
       @strategy = strategies.select(&:available?).first
 
       if @strategy

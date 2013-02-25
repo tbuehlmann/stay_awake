@@ -3,11 +3,11 @@ module StayAwake
     class EmHttpRequest
       include Singleton, Strategy
 
-      def self.available?
+      def available?
         defined?(EventMachine::HttpRequest) ? true : false
       end
 
-      def self.buzz(url)
+      def buzz(url)
         StayAwake.logger.info 'Starting buzzing using EventMachine::HttpRequest.'
 
         EM.next_tick do
@@ -30,7 +30,7 @@ module StayAwake
         end
       end
 
-      def self.shut_off
+      def shut_off
         @timer.cancel
         @timer = nil
         StayAwake.logger.info 'Stopped buzzing.'

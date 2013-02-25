@@ -3,7 +3,7 @@ module StayAwake
     class NetHttp
       include Singleton, Strategy
 
-      def self.available?
+      def available?
         begin
           require 'net/http'
           require 'uri'
@@ -13,7 +13,7 @@ module StayAwake
         end
       end
 
-      def self.buzz(url)
+      def buzz(url)
         require 'timeout'
         StayAwake.logger.info 'Starting buzzing using net/http.'
 
@@ -44,7 +44,7 @@ module StayAwake
         end
       end
 
-      def self.shut_off
+      def shut_off
         @thread.kill
         @thread = nil
         StayAwake.logger.info 'Stopped buzzing.'

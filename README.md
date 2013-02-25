@@ -62,13 +62,15 @@ end
 | `request_method` | `Symbol` | `:head` |
 | `interval` | `Integer` | `300` |
 | `logger` | `Logger` | `Logger.new(STDOUT)` |
-| `strategy` | `StayAwake::Strategy` | `StayAwake.strategies` |
+| `strategy` | `Class` | `StayAwake.strategies` |
 
 You can either use `app_name` or `url`, but `url` has precedence over `app_name`. If just `app_name` is given, it will be translated to `http://app_name.herokuapp.com/`.
 
-When using em-http-request, the buzzing will begin on the `next_tick`.
+`strategy` takes a single Class or Array of Classes that mixed in the `Strategy` Module. If an Array is given, each Strategy is tested for availability. The first available Strategy will be used for buzzing.
+
+When using EM-HTTP-Request, the buzzing will begin on the `next_tick`. When using httparty or Net::HTTP, buzzing will begin immediately (using a Thread).
 
 ### Supported HTTP Libraries
-- [em-http-request](https://github.com/igrigorik/em-http-request "em-http-request")
-- [HTTParty](https://github.com/jnunemaker/httparty "HTTParty")
-- [net/http](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/net/http/rdoc/index.html "net/http")
+- [EM-HTTP-Request](https://github.com/igrigorik/em-http-request "EM-HTTP-Request")
+- [httparty](https://github.com/jnunemaker/httparty "httparty")
+- [Net::HTTP](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/net/http/rdoc/index.html "Net::HTTP")
