@@ -25,10 +25,34 @@ buzzer.buzz
 ```
 
 ### Sinatra
-Put the `StayAwake.configure` block inside Sinatra's `configure` block, run `buzz` and you're done.
+Put the `StayAwake.configure` block inside Sinatra's `configure` block, run `buzz` and you're done:
+
+```ruby
+# app.rb
+
+class App < Sinatra::Base
+  configure :production do
+    StayAwake.configure do |c|
+      c.app_name = 'app_name'
+    end.buzz
+  end
+
+  # …
+end
+```
 
 ### Rails
-Put the StayAwake.configure block inside an initializer, run `buzz` and you're done.
+Put the `StayAwake.configure` block inside an initializer, run `buzz` and you're done:
+
+```ruby
+# config/initializers/stay_awake.rb
+
+if Rails.env.production?
+  StayAwake.configure do |c|
+    c.app_name = 'app_name'
+  end.buzz
+end
+```
 
 ### Configuration Defaults
 | Configuration | Type | Default |
