@@ -1,4 +1,4 @@
-# stay_awake
+# stay_awake [![Gem Version](https://badge.fury.io/rb/stay_awake.png)](http://badge.fury.io/rb/stay_awake) [![Dependency Status](https://gemnasium.com/tbuehlmann/stay_awake.png)](https://gemnasium.com/tbuehlmann/stay_awake)
 
 ## About
 stay_awake requests websites periodically. It's written especially for Heroku, that puts applications to sleep when there are no requests coming in.
